@@ -131,7 +131,7 @@
       font-size: 12px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.18s.ease-out;
+      transition: all 0.18s ease-out;
       white-space: nowrap;
     }
 
@@ -342,17 +342,21 @@
 
     .image-thumb {
       width: 100%;
-      height: 70px;
+      height: 220px;        /* Option B: larger images */
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(148,163,184,0.6);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      background: #0f172a;
+      padding: 0;
+      display: block;
     }
 
     .solution-image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;   /* show full image */
+      object-position: center;
       display: block;
     }
 
@@ -653,10 +657,28 @@
         </div>
       </section>
 
-                              <p>
-              Limited free or discounted builds for selected professionals and small businesses
-              in exchange for feedback and honest testimonials.
+      <!-- PORTFOLIO -->
+      <section class="section" id="portfolio">
+        <div class="section-heading">
+          <div>
+            <h2>Portfolio & example work</h2>
+            <p>
+              Selected builds and refreshes. Some projects are in-progress and will include detailed
+              case studies and testimonials as they complete.
             </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="image-thumb">
+              <span style="display:flex;align-items:flex-end;justify-content:flex-start;padding:6px 8px;font-size:9px;color:rgba(241,245,249,0.9);background:
+                radial-gradient(circle at top left, rgba(248,250,252,0.14), transparent 55%),
+                linear-gradient(135deg, #1d4ed8, #38bdf8);">
+                In-house portfolio layout preview
+              </span>
+            </div>
+                       </p>
             <div class="tag-list">
               <span class="tag">Launch cohort</span>
               <span class="tag">Feedback-driven</span>
@@ -815,4 +837,3 @@
   </script>
 </body>
 </html>
-
