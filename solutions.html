@@ -740,25 +740,7 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
-      <section class="section" id="contact">
-        <div class="section-heading">
-          <div>
-            <h2>Start a conversation</h2>
-            <p>
-              Share a few details about your situation and we’ll suggest a package or a simple
-              next step. No pressure, just clarity.
-            </p>
-          </div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            Early builds prioritized for portfolios & service sites
-          </div>
-        </div>
-
-        <div class="contact-grid">
-          <div class="card">
-            <form action="contact.php" method="POST">
+     <form id="contact-form" onsubmit="sendEnquiry(event)">
   <div>
     <label for="name">Name</label>
     <input id="name" name="name" type="text" placeholder="Your full name" required />
@@ -771,7 +753,7 @@
 
   <div>
     <label for="type">What do you need?</label>
-    <select id="type" name="need">
+    <select id="type" name="need" required>
       <option value="">Select an option</option>
       <option value="Portfolio website">Portfolio website (for job / clients)</option>
       <option value="Business website">Business / service website</option>
@@ -782,17 +764,15 @@
 
   <div>
     <label for="message">Share a bit about your situation</label>
-    <textarea id="message" name="message" placeholder="Example: I’m updating my career and want a portfolio I can share with employers or clients."></textarea>
+    <textarea id="message" name="message" placeholder="Example: I’m updating my career and want a portfolio I can share with employers or clients." required></textarea>
   </div>
 
   <button type="submit" class="btn btn-primary" style="margin-top:4px;width:100%;">
     Send enquiry
   </button>
-    </div>
 </form>
 
-
-          <div class="card">
+      <div class="card">
             <h3>Direct contact</h3>
             <p>
               Prefer to reach out directly? You can email and share your resume, existing website,
@@ -820,7 +800,33 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+function sendEnquiry(event) {
+  event.preventDefault(); // prevent page refresh
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const type = document.getElementById("type").value;
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !message || !type) {
+    alert("Please fill in all fields before sending.");
+    return;
+  }
+
+  const subject = encodeURIComponent("New enquiry from " + name);
+  const body = encodeURIComponent(
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Need: " + type + "\n\n" +
+    "Message:\n" + message
+  );
+
+  window.location.href = `mailto:info.qtworld@gmail.com?subject=${subject}&body=${body}`;
+}
+</script>
 </body>
 </html>
+
 
 
