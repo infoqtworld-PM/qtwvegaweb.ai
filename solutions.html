@@ -131,7 +131,7 @@
       font-size: 12px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.18s ease-out;
+      transition: all 0.18s.ease-out;
       white-space: nowrap;
     }
 
@@ -338,21 +338,25 @@
       gap: 20px;
     }
 
+    /* THUMBNAILS + IMAGES */
+
     .image-thumb {
       width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(148,163,184,0.6);
-      background:
-        radial-gradient(circle at top left, rgba(248,250,252,0.14), transparent 55%),
-        linear-gradient(135deg, #1d4ed8, #38bdf8);
       height: 70px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.6);
       margin-bottom: 8px;
-      display: flex;
-      align-items: flex-end;
-      padding: 6px 8px;
-      font-size: 9px;
-      color: rgba(241,245,249,0.9);
     }
+
+    .solution-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* FORM */
 
     form {
       display: flex;
@@ -464,7 +468,7 @@
     </header>
 
     <main>
-      <!-- INTRO SECTION -->
+      <!-- INTRO / SERVICES -->
       <section class="section" id="services">
         <div class="section-heading">
           <div>
@@ -481,15 +485,16 @@
         </div>
 
         <div class="grid-3">
+          <!-- Portfolio Websites -->
           <div class="card">
             <div class="image-thumb">
-              <span><img src="portfolio-thumbnails.png" 
-       alt="Portfolio examples" 
-       class="solution-image"></span>
+              <img src="portfolio-thumbnails.png"
+                   alt="Portfolio website examples"
+                   class="solution-image">
             </div>
             <h3>Portfolio Websites</h3>
             <p>
-              Designed for job seekers, project leaders, freelancers, Investors, and consultants who want to present
+              Designed for job seekers, project leaders, freelancers, investors, and consultants who want to present
               their work, skills, and impact in one place.
             </p>
             <ul class="features-list">
@@ -499,9 +504,12 @@
             </ul>
           </div>
 
+          <!-- Service & Business Sites -->
           <div class="card">
             <div class="image-thumb">
-              <span>Service / offer image placeholder</span>
+              <img src="service-sites.png"
+                   alt="Service and business website examples"
+                   class="solution-image">
             </div>
             <h3>Service & Business Sites</h3>
             <p>
@@ -515,9 +523,12 @@
             </ul>
           </div>
 
+          <!-- Website Refresh & Cleanup -->
           <div class="card">
             <div class="image-thumb">
-              <span>Before/after layout placeholder</span>
+              <img src="refresh-cleanup.png"
+                   alt="Website refresh and cleanup example"
+                   class="solution-image">
             </div>
             <h3>Website Refresh & Cleanup</h3>
             <p>
@@ -642,54 +653,7 @@
         </div>
       </section>
 
-      <!-- PORTFOLIO -->
-      <section class="section" id="portfolio">
-        <div class="section-heading">
-          <div>
-            <h2>Portfolio & example work</h2>
-            <p>
-              Selected builds and refreshes. Some projects are in-progress and will include detailed
-              case studies and testimonials as they complete.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="image-thumb">
-              <span>In-house portfolio layout preview</span>
-            </div>
-            <h3>Professional Portfolio – In-house Example</h3>
-            <p>
-              Portfolio website demonstrating how project experience, skills, and transformation work
-              can be presented clearly for hiring managers and clients.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Portfolio layout</span>
-              <span class="tag">Projects & impact</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="image-thumb">
-              <span>Investor site refresh preview</span>
-            </div>
-            <h3>Investor Website – Refresh in Progress</h3>
-            <p>
-              Existing website for an investor and professional being refined for clarity, structure,
-              and user experience. Testimonial will be added after completion.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Website refresh</span>
-              <span class="tag">Content re-structure</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="image-thumb">
-              <span>Launch cohort preview</span>
-            </div>
-            <h3>Early Adopter Builds</h3>
+                  <h3>Early Adopter Builds</h3>
             <p>
               Limited free or discounted builds for selected professionals and small businesses
               in exchange for feedback and honest testimonials.
@@ -742,39 +706,63 @@
         </div>
       </section>
 
-     <form id="contact-form" onsubmit="sendEnquiry(event)">
-  <div>
-    <label for="name">Name</label>
-    <input id="name" name="name" type="text" placeholder="Your full name" required />
-  </div>
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="section-heading">
+          <div>
+            <h2>Start a conversation</h2>
+            <p>
+              Share a few details about your situation and we’ll suggest a package or a simple
+              next step. No pressure, just clarity.
+            </p>
+          </div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Early builds prioritized for portfolios & service sites
+          </div>
+        </div>
 
-  <div>
-    <label for="email">Your email</label>
-    <input id="email" name="email" type="email" placeholder="you@example.com" required />
-  </div>
+        <div class="contact-grid">
+          <!-- Form -->
+          <div class="card">
+            <form id="contact-form" onsubmit="sendEnquiry(event)">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
+              </div>
 
-  <div>
-    <label for="type">What do you need?</label>
-    <select id="type" name="need" required>
-      <option value="">Select an option</option>
-      <option value="Portfolio website">Portfolio website (for job / clients)</option>
-      <option value="Business website">Business / service website</option>
-      <option value="Website refresh">Refresh of an existing site</option>
-      <option value="Other">Something else (see message)</option>
-    </select>
-  </div>
+              <div>
+                <label for="email">Your email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
 
-  <div>
-    <label for="message">Share a bit about your situation</label>
-    <textarea id="message" name="message" placeholder="Example: I’m updating my career and want a portfolio I can share with employers or clients." required></textarea>
-  </div>
+              <div>
+                <label for="type">What do you need?</label>
+                <select id="type" name="need" required>
+                  <option value="">Select an option</option>
+                  <option value="Portfolio website">Portfolio website (for job / clients)</option>
+                  <option value="Business website">Business / service website</option>
+                  <option value="Website refresh">Refresh of an existing site</option>
+                  <option value="Other">Something else (see message)</option>
+                </select>
+              </div>
 
-  <button type="submit" class="btn btn-primary" style="margin-top:4px;width:100%;">
-    Send enquiry
-  </button>
-</form>
+              <div>
+                <label for="message">Share a bit about your situation</label>
+                <textarea id="message" name="message" placeholder="Example: I’m updating my career and want a portfolio I can share with employers or clients." required></textarea>
+              </div>
 
-      <div class="card">
+              <button type="submit" class="btn btn-primary" style="margin-top:4px;width:100%;">
+                Send enquiry
+              </button>
+              <p class="form-hint">
+                You’ll be able to review the email before sending. No spam, ever.
+              </p>
+            </form>
+          </div>
+
+          <!-- Direct contact card -->
+          <div class="card">
             <h3>Direct contact</h3>
             <p>
               Prefer to reach out directly? You can email and share your resume, existing website,
@@ -801,35 +789,30 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sendEnquiry(event) {
+      event.preventDefault(); // prevent page refresh
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const type = document.getElementById("type").value;
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message || !type) {
+        alert("Please fill in all fields before sending.");
+        return;
+      }
+
+      const subject = encodeURIComponent("New enquiry from " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Need: " + type + "\n\n" +
+        "Message:\n" + message
+      );
+
+      window.location.href = `mailto:info.qtworld@gmail.com?subject=${subject}&body=${body}`;
+    }
   </script>
-  <script>
-function sendEnquiry(event) {
-  event.preventDefault(); // prevent page refresh
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const type = document.getElementById("type").value;
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !email || !message || !type) {
-    alert("Please fill in all fields before sending.");
-    return;
-  }
-
-  const subject = encodeURIComponent("New enquiry from " + name);
-  const body = encodeURIComponent(
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n" +
-    "Need: " + type + "\n\n" +
-    "Message:\n" + message
-  );
-
-  window.location.href = `mailto:info.qtworld@gmail.com?subject=${subject}&body=${body}`;
-}
-</script>
 </body>
 </html>
-
-
-
-
