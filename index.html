@@ -471,6 +471,21 @@
         align-items: flex-start;
       }
     }
+    .theme-banner {
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(148,163,184,0.5);
+  margin-top: 10px;
+}
+
+.theme-banner-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+</style>
   </style>
 </head>
 <body>
@@ -550,10 +565,11 @@
             </div>
           </div>
 
-          <div class="image-placeholder">
-            <span>Theme image placeholder – replace with your banner / brand photo later</span>
-          </div>
-        </div>
+          <div class="image-placeholder theme-banner">
+  <img src="theme-banner.png"
+       alt="QTW – VegaWeb cosmic tech banner"
+       class="theme-banner-image">
+</div>
       </section>
 
       <!-- WHY VEGAWEB -->
@@ -650,5 +666,6 @@
   </script>
 </body>
 </html>
+
 
 
